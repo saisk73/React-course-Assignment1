@@ -144,14 +144,17 @@ else
 function searchFunction()
 {
    input = document.getElementById('search-bar').value.toUpperCase()
+   var count = 0;
    for(i=0; i<blogdata.length; i++) {
       if(blogdata[`${i}`].title.toUpperCase().indexOf(input) > -1)
       {
          document.getElementById(`blog-${i}`).style.display= "";
+         count = count + 1;
       }
       else
       {
          document.getElementById(`blog-${i}`).style.display= "none";
       }
    }
+   document.getElementById('total-blogs').innerHTML = count;
 }
