@@ -47,11 +47,11 @@ if(topic_param == null)
    })
 .then(() =>{
    const container = document.getElementById('blog-container');   
-   blogdata.forEach((blog, idx) => {
+   blogdata.forEach((blog, blogId) => {
       let random_color = '#'+(Math.random()*0xFFFFFF<<0).toString(16)
       // Construct card content
       const content = `
-        <div class="col-xl-3 col-lg-4 col-md-6 col-12 p-2">    
+        <div id="blog-${blogId}" class="col-xl-3 col-lg-4 col-md-6 col-12 p-2">    
             <div class="border rounded-lg">
                <img class="blog-card-image rounded-top" src="${blog.imgurl}" />
                <div class="blog-body">
@@ -63,8 +63,6 @@ if(topic_param == null)
             </div>
          </div>
       `;
-    
-      // Append newyly created card element to the container
       container.innerHTML += content;
     })
    
@@ -84,11 +82,11 @@ else
    // not the best pratice but it works
    if(blogdata.length >0)
    {
-      blogdata.forEach((blog, idx) => {
+      blogdata.forEach((blog, blogId) => {
          let random_color = '#'+(Math.random()*0xFFFFFF<<0).toString(16)
          // empty container
          const content = `
-           <div class="col-xl-3 col-lg-4 col-md-6 col-12 p-2">    
+           <div id="blog-${blogId}" class="col-xl-3 col-lg-4 col-md-6 col-12 p-2">    
                <div class="border rounded-lg">
                   <img class="blog-card-image rounded-top" src="${blog.imgurl}" />
                   <div class="blog-body">
@@ -100,8 +98,6 @@ else
                </div>
             </div>
          `;
-       
-         // Append newyly created card element to the container
          container.innerHTML += content;
        })
    }
@@ -130,7 +126,7 @@ else
                Looks Empty over Here...The item you are looking for is not found.
             </p>
             <div class="row justify-content-center">
-               <div class="col-3">
+               <div class="col-md-auto col-sm-auto">
                   <a href="/" class="btn rounded-pill border" style="font-weight:500;">Return Home</a>
                </div>
             </div>
@@ -141,4 +137,21 @@ else
    }
    
    });
+}
+
+
+//search
+function searchFunction()
+{
+   input = document.getElementById('search-bar').value.toUpperCase()
+   for(i=0; i<blogdata.length; i++) {
+      if(blogdata[`${i}`].title.toUpperCase().indexOf(input) > -1)
+      {
+         document.getElementById(`blog-${i}`).style.display= "";
+      }
+      else
+      {
+         document.getElementById(`blog-${i}`).style.display= "none";
+      }
+   }
 }

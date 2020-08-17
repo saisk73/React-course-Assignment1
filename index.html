@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai's Blog</title>
+    <link rel="shortcut icon" href="/assets/images/blog.svg" type="image/x-icon">
     <link rel="stylesheet" href="/assets/libs/bootstrap-5.0.0-alpha1-dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/home.css">
@@ -30,13 +31,13 @@
     <!-- BODY -->
     <div class="filter-container">
       <div class="row justify-content-between m-0 mt-3 p-2">
-        <div class="col-lg-8 col-md-6 col-1">
+        <div class="col-lg-8 col-md-6 col-12 mb-2">
             <div class="input-group">
                 <span class="input-group-text bg-light material-icons" id="basic-addon1">search</span>
-                <input type="text" class="form-control search-bar" placeholder="Search something..." onkeyup="searchFunction()" aria-label="search">
+                <input id="search-bar" type="text" class="form-control search-bar" onkeyup="searchFunction()" placeholder="Search something..." onkeyup="searchFunction()" aria-label="search">
             </div>
         </div>
-        <div class="col-md-auto col-6 align-self-sm-end">
+        <div class="col-md-auto col-12 align-self-sm-end">
           <div class="btn-group">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
               FILTER
