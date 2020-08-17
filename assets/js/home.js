@@ -1,42 +1,9 @@
-//if api is not working
-// var blogdata = [{"id":1,"title":"Bootstrap: What's inside the most popular UI framework","topic":"front-end","created_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"updated_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"created_at":"2020-08-13T14:17:53.000Z","updated_at":"2020-08-13T14:24:27.000Z","imgurl":"/assets/images/bootstrap1.jpg"},{"id":2,"title":"What's new in Bootstrap 5","topic":"front-end","created_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"updated_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"created_at":"2020-08-13T14:18:19.000Z","updated_at":"2020-08-13T14:18:19.000Z","imgurl":"assets/images/bootstrap2.jpg"},{"id":3,"title":"AWS for beginners","topic":"cloud","created_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"updated_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"created_at":"2020-08-13T14:18:52.000Z","updated_at":"2020-08-13T14:18:52.000Z","imgurl":"/assets/images/cloud1.jpg"},{"id":4,"title":"deploy your web app in Google Cloud Platform","topic":"cloud","created_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"updated_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"created_at":"2020-08-13T14:19:28.000Z","updated_at":"2020-08-13T14:19:28.000Z","imgurl":"/assets/images/cloud2.png"},{"id":5,"title":"What's new in Ubuntu 20.04 LTS","topic":"cloud","created_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"updated_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"created_at":"2020-08-13T14:20:07.000Z","updated_at":"2020-08-13T14:20:07.000Z","imgurl":"/assets/images/cloud3.png"},{"id":6,"title":"Vue.js for beginners","topic":"vue.js","created_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"updated_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"created_at":"2020-08-13T14:20:48.000Z","updated_at":"2020-08-13T14:20:48.000Z","imgurl":"/assets/images/vue1.png"},{"id":7,"title":"What's new in vue 3","topic":"vue.js","created_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"updated_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"created_at":"2020-08-13T14:21:15.000Z","updated_at":"2020-08-13T14:21:15.000Z","imgurl":"/assets/images/vue2.png"},{"id":8,"title":"Real time data app using vue.js","topic":"vue.js","created_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"updated_by":{"id":1,"firstname":"sai","lastname":"reddy","username":null},"created_at":"2020-08-13T14:21:37.000Z","updated_at":"2020-08-13T14:21:37.000Z","imgurl":"/assets/images/vue3.png"}]
-
 var blogdata,response;
-// fetch('https://api.waytoskill.com/assignments')
-// .then(res => response = res.json())
-// .then(data =>{
-//    blogdata = data;
-//    document.getElementById('total-blogs').innerHTML = blogdata.length;   
-// })
-// .then(() =>{
-//    const container = document.getElementById('blog-container');   
-//    blogdata.forEach((blog, idx) => {
-//       let random_color = '#'+(Math.random()*0xFFFFFF<<0).toString(16)
-//       // Construct card content
-//       const content = `
-//         <div class="col-xl-3 col-lg-4 col-md-6 col-12 p-2">    
-//             <div class="border rounded-lg">
-//                <img class="blog-card-image rounded-top" src="${blog.imgurl}" />
-//                <div class="blog-body">
-//                   <p class="blog-title text-truncate">${blog.title}</p>
-//                   <p class="mb-0">
-//                      <a href="?topic=${blog.topic}" style="background-color:${random_color};" class="btn btn-sm btn-pill border">${blog.topic}</a>
-//                   </p>
-//                </div>
-//             </div>
-//          </div>
-//       `;
-    
-//       // Append newyly created card element to the container
-//       container.innerHTML += content;
-//     })
-   
-//    }, 1000);
-
 
 var url_string = window.location.href
 var url = new URL(url_string);
 var topic_param = url.searchParams.get("topic");
+
 if(topic_param == null)
 {
    fetch('https://api.waytoskill.com/assignments')
